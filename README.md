@@ -1,1 +1,43 @@
-# netcircle-frontend
+# netcircle-frontend環境構築
+## Windows開発環境
+1. WSL2とDockerを導入する
+
+    [WSL2とDockerの導入](https://www.kagoya.jp/howto/cloud/container/wsl2_docker/)
+
+2. gitのインストールと設定
+
+   あらかじめgitHubのアカウント開設をお願いします。
+  
+    [gitインストール](https://learn.microsoft.com/ja-jp/windows/wsl/tutorials/wsl-git)
+
+   ※Git Credential Manager のセットアップ以下は必要ないです。
+
+   [githubの設定](https://zenn.dev/claustra01/articles/d5b31d0ffa0eb2#github%E3%81%A8%E3%81%AEssh%E6%8E%A5%E7%B6%9A)
+
+3. vsCodeのインストール
+
+   [vsCode](https://code.visualstudio.com/download)
+
+4. gitでソースコードのclone
+
+   Ubuntu上で任意の作業ディレクトリを作成し、移動する。
+   2で設定ができていれば下記コマンドを実行する。
+   
+   `$ git clone git@github.com:yoshihtb6/netcircle-frontend.git`
+
+5. nodejsとyarnのインストール
+
+   [WSL2にNode.jsとYarnを導入する](https://zenn.dev/ryuu/articles/wsl2-addyarn)
+
+6. dockerコンテナの立ち上げ
+
+   プロジェクトルートディレクトリ(/netcircle-frontend/)に移動して下記コマンドを実行する。
+
+   `$ docker compose up --build `
+
+   画像のような表示になっていればOK。
+   ![image](https://github.com/user-attachments/assets/e9bc3367-e4e3-48e8-a04c-2b30b8959b19)
+
+   ブラウザに`localhost:3000`と入力する。
+
+以上です。
