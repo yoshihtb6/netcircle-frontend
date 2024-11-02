@@ -32,11 +32,11 @@
 6. dockerコンテナの立ち上げ
 
    プロジェクトルートディレクトリ(/netcircle-frontend/)に移動して下記コマンドを実行する。
+   初回↓
+   `$ docker compose up -d --build `
 
-   `$ docker compose up --build `
-
-   画像のような表示になっていればOK。
-   ![image](https://github.com/user-attachments/assets/e9bc3367-e4e3-48e8-a04c-2b30b8959b19)
+   2回目以降
+   `$ docker compose up -d`
 
    ブラウザに`localhost:3000`と入力する。
 
