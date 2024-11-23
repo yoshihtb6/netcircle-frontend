@@ -2,7 +2,7 @@
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,jsx,ts,tsx}", // ViteでReactを使用する場合のパス
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {},
