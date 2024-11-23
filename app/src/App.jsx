@@ -5,7 +5,7 @@ import './App.css'
 
 function App() {
   const onClick = () => {
-    console.log('test')
+    console.log('testtest')
   }
 
   return (
