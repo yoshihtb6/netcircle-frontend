@@ -1,15 +1,17 @@
-# ベースイメージとしてNode.jsを使用
-FROM node:22-slim
+# Node.jsベースのイメージを使用
+FROM node:18
 
 # 作業ディレクトリを設定
 WORKDIR /app
 
-# パッケージファイルをコピー
-COPY package.json package-lock.json ./
+# 必要なファイルをコピー
+COPY ./app/package.json ./app/package-lock.json* ./app/yarn.lock* ./
 
 # 依存関係をインストール
-RUN npm install
+RUN yarn install
 
-# 開発用サーバの起動
-CMD ["npm", "run", "dev"]
+# ソースコードをコピー
+COPY ./app .
 
+# Viteサーバーを起動
+CMD ["yarn", "run", "dev", "--", "--host"]
