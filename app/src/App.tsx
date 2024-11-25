@@ -1,71 +1,37 @@
-import React, { useEffect } from "react";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import "./App.css";
-import { useAtom } from "jotai";
-import { updateUsersAtom } from "./atoms/usersAtom";
-import { Button } from "./components/ui/button";
-import { PutUser, PostUser } from "./types/users";
+import { NotFound } from "./components/common/auth/NotFound";
+import { GuestLogin } from "./pages/guest/auth/Login";
+import { AdminLogin } from "./pages/admin/auth/Login";
+import { GuestProtectedRoute} from "./components/common/auth/GuestProtectedRoute";
+import { GuestHome } from "./pages/guest/Home";
+import { AdminHome } from "./pages/admin/Home";
+import { AdminProtectedRoute } from "./components/common/auth/AdminProtectedRoute";
 
-const App: React.FC = () => {
-  const [users, dispatch] = useAtom(updateUsersAtom);
-
-  // 初回データ取得
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        await dispatch({ type: "get" });
-      } catch (error) {
-        console.error("Failed to fetch users:", error);
-      }
-    };
-    fetchData();
-  }, [dispatch]);
-
-  // ユーザーを追加する処理
-  const handleCreateUser = async () => {
-    const postData: PostUser = {
-      name: "sample1",
-      handle_name: "sample1",
-      role: "admin",
-    };
-    try {
-      await dispatch({ type: "post", payload: postData });
-    } catch (error) {
-      console.error("Failed to create user:", error);
-    }
-  };
-
-  // ユーザーを更新する処理
-  const handleUpdateUser = async (userId: number) => {
-    const putData: PutUser = {
-      id: userId,
-      name: "sample2",
-      handle_name: "sample2",
-      role: "admin",
-      icon: "sample2",
-      profile: "sample2",
-      token: "sample2"
-    };
-    try {
-      await dispatch({ type: "put", payload: putData });
-    } catch (error) {
-      console.error("Failed to update user:", error);
-    }
-  };
+export const App = () => {
 
   return (
-    <div>
-      <h1>User List</h1>
-      {users.map((user) => (
-        <Button key={user.id} onClick={() => handleUpdateUser(user.id)}>
-          {user.handle_name}
-        </Button>
-      ))}
+    <Router>
+      <Routes>
+        {/* 404 ページ */}
+        <Route path="*" element={<NotFound />} />
 
-      <Button onClick={handleCreateUser} style={{ marginTop: "20px" }}>
-        Add User
-      </Button>
-    </div>
+        {/* ゲストのログインページ */}
+        <Route path="/login" element={<GuestLogin />} />
+
+        {/* 管理者のログインページ */}
+        <Route path="/admin/login" element={<AdminLogin />} />
+
+        {/* ユーザー向け認証ルート */}
+        <Route path="/" element={<GuestProtectedRoute />}>
+          <Route index element={<GuestHome />} />
+        </Route>
+
+        {/* 管理者向け認証ルート */}
+        <Route path="/admin" element={<AdminProtectedRoute />}>
+          <Route index element={<AdminHome />} />
+        </Route>
+      </Routes>
+    </Router>
   );
 };
-
-export default App;
