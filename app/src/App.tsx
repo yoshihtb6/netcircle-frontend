@@ -1,12 +1,12 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import "./App.css";
 import { NotFound } from "./components/common/auth/NotFound";
-import { GuestLogin } from "./pages/guest/auth/Login";
-import { AdminLogin } from "./pages/admin/auth/Login";
 import { GuestProtectedRoute} from "./components/common/auth/GuestProtectedRoute";
-import { GuestHome } from "./pages/guest/Home";
+import { UserHome } from "./pages/user/Home";
+import { Image } from "./pages/user/Image";
 import { AdminHome } from "./pages/admin/Home";
 import { AdminProtectedRoute } from "./components/common/auth/AdminProtectedRoute";
+import { LoginFormLayout } from "./pages/auth/LoginFormLayout";
 
 export const App = () => {
 
@@ -16,15 +16,13 @@ export const App = () => {
         {/* 404 ページ */}
         <Route path="*" element={<NotFound />} />
 
-        {/* ゲストのログインページ */}
-        <Route path="/login" element={<GuestLogin />} />
-
-        {/* 管理者のログインページ */}
-        <Route path="/admin/login" element={<AdminLogin />} />
+        {/* ログインページ */}
+        <Route path="/login" element={<LoginFormLayout />} />
 
         {/* ユーザー向け認証ルート */}
         <Route path="/" element={<GuestProtectedRoute />}>
-          <Route index element={<GuestHome />} />
+          <Route index element={<UserHome />} />
+          <Route path="image" element={<Image />} />
         </Route>
 
         {/* 管理者向け認証ルート */}

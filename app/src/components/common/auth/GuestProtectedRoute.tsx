@@ -1,9 +1,9 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { useAtom } from "jotai";
-import { isGuestLoggedInAtom } from "@/atoms/authAtom";
+import { isUserLoginAtom } from "@/atoms/authAtom";
 
 export const GuestProtectedRoute = () => {
-  const [isGuestLoggedIn] = useAtom(isGuestLoggedInAtom);
+  const [isGuestLoggedIn] = useAtom(isUserLoginAtom);
 
   if (!isGuestLoggedIn) {
     // 認証されていない場合、ユーザーログインページへリダイレクト

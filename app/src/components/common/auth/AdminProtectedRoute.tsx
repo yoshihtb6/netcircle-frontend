@@ -1,13 +1,13 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { useAtom } from "jotai";
-import { isAdminLoggedInAtom } from "@/atoms/authAtom";
+import { isAdminLoginAtom } from "@/atoms/authAtom";
 
 export const AdminProtectedRoute = () => {
-  const [isAdminLoggedIn] = useAtom(isAdminLoggedInAtom);
+  const [isAdminLoggedIn] = useAtom(isAdminLoginAtom);
 
   if (!isAdminLoggedIn) {
-    // 認証されていない場合、管理者ログインページへリダイレクト
-    return <Navigate to="/admin/login" />;
+    // 認証されていない場合、ユーザールートへリダイレクト
+    return <Navigate to="/" />;
   }
 
   return (

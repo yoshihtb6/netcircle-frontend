@@ -1,23 +1,23 @@
-import { updateUsersAtom } from "@/atoms/usersAtom";
+import { usersActionAtom } from "@/atoms/usersAtom";
 import { Button } from "@/components/ui/button";
 import { PostUser, PutUser } from "@/types/users";
 import { useAtom } from "jotai";
 import { useEffect } from "react";
 
 export const Users = () => {
-  const [users, dispatch] = useAtom(updateUsersAtom);
+  const [users, setUsersAction] = useAtom(usersActionAtom);
 
   // 初回データ取得
   useEffect(() => {
     const fetchData = async () => {
       try {
-        await dispatch({ type: "get" });
+        await setUsersAction({ type: "get" });
       } catch (error) {
         console.error("Failed to fetch users:", error);
       }
     };
     fetchData();
-  }, [dispatch]);
+  }, [setUsersAction]);
 
   // ユーザーを追加する処理
   const handleCreateUser = async () => {
@@ -25,9 +25,10 @@ export const Users = () => {
       name: "sample1",
       handle_name: "sample1",
       role: "admin",
+      password: "test1234"
     };
     try {
-      await dispatch({ type: "post", payload: postData });
+      await setUsersAction({ type: "post", payload: postData });
     } catch (error) {
       console.error("Failed to create user:", error);
     }
@@ -40,12 +41,12 @@ export const Users = () => {
       name: "sample2",
       handle_name: "sample2",
       role: "admin",
+      password: "test1234",
       icon: "sample2",
-      profile: "sample2",
-      token: "sample2"
+      profile: "sample2"
     };
     try {
-      await dispatch({ type: "put", payload: putData });
+      await setUsersAction({ type: "put", payload: putData });
     } catch (error) {
       console.error("Failed to update user:", error);
     }
