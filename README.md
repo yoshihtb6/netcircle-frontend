@@ -1,4 +1,24 @@
 # netcircle-frontend環境構築
+
+## 技術スタック
+言語：Typescript
+
+JSライブラリ：React
+
+JS実行環境：node.js
+
+パッケージマネージャー：npm
+
+状態管理ライブラリ：jotai
+
+ビルドツール：vite
+
+CSS：tailwindcss
+
+UIライブラリ：shadcn
+
+HTTPライブラリ：axios
+
 ## Windows開発環境
 1. WSL2とDockerを導入する
 
