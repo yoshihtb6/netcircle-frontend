@@ -78,7 +78,7 @@ export const LoginForm = () => {
           name="username"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>username</FormLabel>
+              <FormLabel className="text-white">username</FormLabel>
               <FormControl>
                 <Input {...field} />
               </FormControl>
@@ -91,9 +91,9 @@ export const LoginForm = () => {
           name="password"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>password</FormLabel>
+              <FormLabel className="text-white">password</FormLabel>
               <FormControl>
-                <Input {...field} />
+                <Input type="password" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
