@@ -9,15 +9,17 @@ JS実行環境：node.js
 
 パッケージマネージャー：npm
 
-状態管理ライブラリ：jotai
+状態管理ライブラリ：[jotai](https://jotai.org)
 
 ビルドツール：vite
 
-CSS：tailwindcss
+CSS：[tailwindcss](https://tailwindcss.com)
 
-UIライブラリ：shadcn
+UIライブラリ：[shadcn](https://ui.shadcn.com)
 
-HTTPライブラリ：axios
+HTTPライブラリ：[axios](https://axios-http.com/docs/intro)
+
+トースト：[react-hot-toast](https://react-hot-toast.com)
 
 ## Windows開発環境
 1. WSL2とDockerを導入する

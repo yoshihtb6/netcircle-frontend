@@ -19,6 +19,7 @@ import Cookies from 'js-cookie';
 import { jwtDecode } from "jwt-decode";
 import { JWTDecodeToken, LoginFormItem } from "@/types/auth"
 import { useNavigate } from "react-router-dom"
+import toast from "react-hot-toast"
 
 const formSchema = z.object({
   username: z
@@ -62,11 +63,12 @@ export const LoginForm = () => {
           Cookies.set("is_admin_logged_in", "true", { expires: 1, secure: true, sameSite: 'Strict' });
         }
 
-        console.log("ログイン成功");
+        toast.success('ログインに成功しました。');
         navigate("/");
       }
     } catch (error) {
       console.error("Failed to create user:", error);
+      toast.error('ログインに失敗しました：' + error);
     }      
   };
 
