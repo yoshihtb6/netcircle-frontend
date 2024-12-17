@@ -1,13 +1,9 @@
-import { LogoutButton } from "@/components/common/auth/LogoutButton"
+import { Header } from "./headerMenu/header";
 
 export const UserHome = () => {
-  
-  
-
   return (
     <div>
-      <p>User HOME TMP</p>
-      <LogoutButton />
+      <Header />
     </div>
   )
 }
