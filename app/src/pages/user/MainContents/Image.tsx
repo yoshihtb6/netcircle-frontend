@@ -5,8 +5,8 @@ const images = [
   { id: 2, src: "/images/m3hD-0XX.jpg", category: "narutema" },
   { id: 3, src: "/images/PXL_20241013_081721263.jpg", category: "omatsu" },
   { id: 4, src: "/images/PXL_20241013_084422956.jpg", category: "nurutema" },
-  { id: 5, src: "/images/R-cdseia.jpg", category: "jony" },
-  { id: 5, src: "/Cheeky.jpg", category: "jony" },
+  { id: 5, src: "/R-cdseia.jpg", category: "jony" },
+  { id: 6, src: "/Cheeky.jpg", category: "jony" },
 ];
 
 const categories = ["all", "nature", "architecture", "people"];
