@@ -3,9 +3,10 @@ import { useState } from "react";
 const images = [
   { id: 1, src: "../../../src/assets/images/2t2O0Aqo.jpg", category: "narutema" },
   { id: 2, src: "../../../src/assets/images/m3hD-0XX.jpg", category: "narutema" },
-  { id: 3, src: "/../../../src/assets/images/PXL_20241013_081721263.jpg", category: "omatsu" },
+  { id: 3, src: "../../../src/assets/images/PXL_20241013_081721263.jpg", category: "omatsu" },
   { id: 4, src: "../../../src/assets/images/PXL_20241013_084422956.jpg", category: "nurutema" },
   { id: 5, src: "../../../src/assets/images/R-cdseia.jpg", category: "jony" },
+  { id: 6, src: "../../../src/assets/images/Cheeky.jpg", category: "jony" },
 ];
 
 const categories = ["all", "nature", "architecture", "people"];
