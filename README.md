@@ -64,3 +64,18 @@ HTTPライブラリ：[axios](https://axios-http.com/docs/intro)
    ブラウザに`localhost:3000`と入力する。
 
 以上です。
+
+## 開発メモ
+### エラーなどの解決策
+
+・shascn
+
+下記のようなエラーが出た場合
+
+Something went wrong. Please check the error below for more details.
+If the problem persists, please open an issue on GitHub.
+
+ENOENT: no such file or directory, open '/home/netcircle/netcircle-frontend/app/tailwind.config.js'
+
+→/appディレクトリ下のtailwind.config.cjsにシンボリックリンクを設定する
+`$ ln -s tailwind.config.cjs tailwind.config.js `

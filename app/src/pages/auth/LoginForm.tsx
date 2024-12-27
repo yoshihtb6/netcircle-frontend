@@ -45,6 +45,11 @@ export const LoginForm = () => {
 
   // 2. Define a submit handler.
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    // 先にログアウト処理をする
+    Cookies.remove('access_token');
+    Cookies.remove("is_user_logged_in");
+    Cookies.remove("is_admin_logged_in");
+    
     const loginFormData: LoginFormItem = {
       username: values.username,
       password: values.password

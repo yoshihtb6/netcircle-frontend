@@ -12,6 +12,12 @@ export interface PutUser extends PostUser {
 }
 
 export interface GetUsers extends PutUser {
-  createdAt: Date;
-  updatedAt: Date;
+  created_at: Date;
+  updated_at: Date;
+}
+
+export interface EditedData {
+  handle_name: string;
+  role: string;
+  profile: string;
 }

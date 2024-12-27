@@ -1,7 +1,5 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
-import { useAtom } from 'jotai';
-import { refreshTokenAtom } from '@/atoms/authAtom';
 
 // Axiosインスタンス作成
 const apiClient = axios.create({
@@ -30,7 +28,7 @@ apiClient.interceptors.response.use(
       originalRequest._retry = true;
 
       try {
-        const refreshToken = useAtom(refreshTokenAtom); // Jotaiからリフレッシュトークンを取得
+        const refreshToken = Cookies.get('refresh_token');
         if (!refreshToken) throw new Error('リフレッシュトークンがありません');
 
         // 新しいアクセストークンを取得

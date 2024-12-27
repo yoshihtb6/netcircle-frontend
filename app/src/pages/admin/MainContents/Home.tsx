@@ -1,7 +1,7 @@
-import { Users } from "./Users"
-
 export const AdminHome = () => {
   return (
-    <Users />
+    <div>
+      HOME
+    </div>
   )
 }
