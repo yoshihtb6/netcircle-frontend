@@ -7,7 +7,6 @@ export const LoginFormLayout = () => {
       <div className="h-full w-full flex items-start justify-center pt-32">
         <div className="lg:w-1/3 md:w-1/2 max-w-lg bg-[rgb(12,13,40)] rounded-lg p-8 flex flex-col w-full mt-10 md:mt-0 relative z-10 shadow-md">
           <img
-            // className="mt-6 rounded-lg shadow-xl"
             src="../../../public/nessalogo.png"
             alt="netcircle official logo"
           />
