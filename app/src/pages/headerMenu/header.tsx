@@ -10,6 +10,7 @@ import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Logout } from "@/components/common/auth/Logout";
 import { useAtom } from "jotai";
 import { isAdminLoginAtom } from "@/atoms/authAtom";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   const handleLogout = Logout();
@@ -29,9 +30,7 @@ export const Header = () => {
 
         {/* ナビゲーションメニュー (オプション) */}
         <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
-          <a href="/" className="mr-5 text-white hover:text-gray-300">
-            Home
-          </a>
+          <Link to="/" className="mr-5 text-white hover:text-gray-300">Home</Link>
           <a href="#about" className="mr-5 text-white hover:text-gray-300">
             About
           </a>
@@ -48,10 +47,10 @@ export const Header = () => {
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               <DropdownMenuItem>
-                <a href="/image">Image</a>
+                <Link to="/image">Image</Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <a href="/video">Video</a>
+                <Link to="/video">Video</Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -71,7 +70,7 @@ export const Header = () => {
             <DropdownMenuSeparator />
             {isAdminLoggedIn &&
               <DropdownMenuItem>
-                <a href="/admin">管理画面</a>
+                <Link to="/admin">管理画面</Link>
               </DropdownMenuItem>
             }
             <DropdownMenuItem>プロフィール</DropdownMenuItem>
